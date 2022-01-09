@@ -6,14 +6,13 @@ const Author = require("../models/author");
 app.get("/", async (req, res) => {
   let searchOptions = {};
   if (req.query.name != null && req.query.name !== "") {
-    searchOptions = new RegExp(req.query.name, "i");
+    searchOptions.name = new RegExp(req.query.name, "i");
   }
   try {
-    const authors = await Author.find({ name:searchOptions });
-    console.log(authors[0].name)
+    const authors = await Author.find( searchOptions );
     res.render("authors/index.ejs", {
       authors: authors,
-      searchOptions: req.query.name,
+      searchOptions: req.query,
     });
   } catch {
     res.redirect("/");

@@ -15,7 +15,7 @@ app.use(expressLayouts);
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false, limit: "10mb" }));
 
-mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost:270/library", {
+mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
 });
 const db = mongoose.connection;
