@@ -32,11 +32,12 @@ app.post("/", upload.single("cover"), async (req, res) => {
   const book = new Book({
     name: req.body.name,
     author: req.body.author,
-    pulishDate: new Date(req.body.publishDate),
+    publishDate: new Date(req.body.publishDate),
     pageCount: req.body.pageCount,
     description: req.body.description,
     coverImageName: filename,
   });
+  console.log(book);
 
   try {
     const newBook = await book.save();
