@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const fs = require("fs");
 const multer = require("multer");
 const path = require("path");
 const Book = require("../models/book");
@@ -26,9 +27,7 @@ app.get("/new", async (req, res) => {
 //create book route
 
 app.post("/", upload.single("cover"), async (req, res) => {
-  console.log(req.body);
-  const filename = req.file != null ? req.file.originalname : null;
-  console.log("Cover: " + req.body.cover);
+  const filename = req.file != null ? req.file.filename : null;
   const book = new Book({
     name: req.body.name,
     author: req.body.author,
@@ -37,12 +36,14 @@ app.post("/", upload.single("cover"), async (req, res) => {
     description: req.body.description,
     coverImageName: filename,
   });
-  console.log(book);
 
   try {
     const newBook = await book.save();
     res.redirect("books");
   } catch (error) {
+    if(filename!=null){
+      fs.unlink(path.join(uploadPath, filename), () => {});
+    }
     renderNewPage(res, book, true);
   }
 });

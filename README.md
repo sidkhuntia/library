@@ -1,6 +1,6 @@
 ## Things to do
 
-- [ ] Upload file path bug in multer
+- [X] Upload file path bug in multer
 
 
 ```

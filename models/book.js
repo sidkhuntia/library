@@ -18,14 +18,16 @@ const bookSchema = new mongoose.Schema({
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Author",
-    required: true,
+    required: true
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+    required: true  
   },
   coverImageName: {
-    type: String
+    type: String,
+    required: true
   },
   description: {
     type: String,
