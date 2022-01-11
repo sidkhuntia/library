@@ -44,8 +44,6 @@ app.get("/", async (req, res) => {
       publishDate: { $gte: req.query.publishedAfter },
     };
   }
-  console.log(searchOptions);
-  // console.log(query);
   try {
     const books = await query.exec();
     res.render("books/index", { books: books, searchOptions: req.query });
