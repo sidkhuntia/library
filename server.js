@@ -3,6 +3,9 @@ const app = express();
 const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const colors = require("colors");
+const log = console.log;
+
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -32,5 +35,5 @@ app.use("/books", bookRouter);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Listening on port ${port}.....`);
+  log(`Listening on port ${port}.....`.brightBlue);
 });

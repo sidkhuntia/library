@@ -16,7 +16,42 @@ const upload = multer({
 
 //book home page
 app.get("/", async (req, res) => {
-  res.render("books/index");
+  // declaring a empty object to store search options
+  let query = Book.find();
+  let searchOptions = [];
+
+  const au = req.query.author;
+  const na = req.query.name;
+
+  // filter using the name of the book
+  if (req.query.name != null && req.query.name !== "") {
+    const regex = new RegExp(req.query.name, "i");
+    query = Book.find({ name: regex });
+    searchOptions['name'] = regex;
+  }
+
+  // filter using the puslish date of the book
+  if (req.query.publishedBefore != null && req.query.publishedBefore !== "") {
+    query = query.lte("publishDate", req.query.publishedBefore);
+    searchOptions = {
+      publishDate: { $lte: req.query.publishedBefore },
+    };
+  }
+
+  if (req.query.publishedAfter != null && req.query.publishedAfter !== "") {
+    query = query.gte("publishDate", req.query.publishedAfter);
+    searchOptions = {
+      publishDate: { $gte: req.query.publishedAfter },
+    };
+  }
+  console.log(searchOptions);
+  // console.log(query);
+  try {
+    const books = await query.exec();
+    res.render("books/index", { books: books, searchOptions: req.query });
+  } catch (err) {
+    res.redirect("/");
+  }
 });
 
 // new book route
@@ -41,7 +76,7 @@ app.post("/", upload.single("cover"), async (req, res) => {
     const newBook = await book.save();
     res.redirect("books");
   } catch (error) {
-    if(filename!=null){
+    if (filename != null) {
       fs.unlink(path.join(uploadPath, filename), () => {});
     }
     renderNewPage(res, book, true);
