@@ -4,9 +4,9 @@
 
 - [X] Upload file path bug in multer
 - [X] Store cover images on mongodb
-- [X] hell lot of things
-- [X] Add search option of books using author
-- [X] Show author name and pageCount and a short description on cover caption on book page
+- [ ] hell lot of things
+- [ ] Add search option of books using author
+- [ ] Show author name and pageCount and a short description on cover caption on book page
 - [ ] Add darkmode feature
 - [ ] Find a way to store cover images in cloud for free 
 - [ ] Add a feature to upload notes and bookmarks
