@@ -1,19 +1,27 @@
+# Library 
+
 ## Things to do
 
 - [X] Upload file path bug in multer
-
+- [X] Store cover images on mongodb
+- [X] hell lot of things
+- [X] Add search option of books using author
+- [X] Show author name and pageCount and a short description on cover caption on book page
+- [ ] Add darkmode feature
+- [ ] Find a way to store cover images in cloud for free 
+- [ ] Add a feature to upload notes and bookmarks
 
 ```
 .
+├── node_modules/
 ├── models
 │   ├── author.js
 │   └── book.js
-├── node_modules/
 ├── package.json
 ├── package-lock.json
 ├── public
-│   └── uploads
-│       └── covers
+│   └── scripts
+│       └── fileupload.js
 ├── README.md
 ├── routes
 │   ├── authors.js
