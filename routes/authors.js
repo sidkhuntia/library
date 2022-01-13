@@ -9,7 +9,7 @@ app.get("/", async (req, res) => {
     searchOptions.name = new RegExp(req.query.name, "i");
   }
   try {
-    const authors = await Author.find( searchOptions );
+    const authors = await Author.find(searchOptions);
     res.render("authors/index.ejs", {
       authors: authors,
       searchOptions: req.query,
@@ -40,5 +40,19 @@ app.post("/", async (req, res) => {
     });
   }
 });
+
+app.get("/:id", (req, res) => {
+  res.send("hi"+req.params.id);
+});
+app.get("/:id/edit", (req, res) => {
+  res.send("why this" + req.params.id);
+});
+app.put("/:id", (req, res) => {
+  res.send("putting here" + req.params.id);
+});
+app.delete("/:id", (req, res) => {
+  res.send("deleting here" + req.params.id);
+});
+
 
 module.exports = app;

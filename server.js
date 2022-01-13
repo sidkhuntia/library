@@ -3,7 +3,7 @@ const app = express();
 const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-
+const methodOverride = require("method-override");
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -15,6 +15,7 @@ app.set("layout", "layouts/layout");
 app.use(expressLayouts);
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false, limit: "10mb" }));
+app.use(methodOverride("_method"));
 
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
