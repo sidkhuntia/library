@@ -52,13 +52,12 @@ app.post("/", async (req, res) => {
     pageCount: req.body.pageCount,
     description: req.body.description
   });
-  saveBookCover(book, req.body.cover);
   try {
     const newBook = await book.save();
+    saveBookCover(book, req.body.cover);
     res.redirect("books");
   } catch (error) {
-    // renderNewPage(res, book, true);
-    res.redirect("/")
+    renderNewPage(res, book, true);
   }
 });
 
