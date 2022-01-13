@@ -14,6 +14,12 @@ app.get("/", async (req, res) => {
     query = Book.find({ name: regex });
   }
 
+  // filter using the author of the book
+  if (req.query.author != null && req.query.author !== "") {
+    console.log(req.query.author);
+    query = Book.find({ author: req.query.author });
+  }
+
   // filter using the puslish date of the book
   if (req.query.publishedBefore != null && req.query.publishedBefore !== "") {
     query = query.lte("publishDate", req.query.publishedBefore);
@@ -24,7 +30,8 @@ app.get("/", async (req, res) => {
   }
   try {
     const books = await query.exec();
-    res.render("books/index", { books: books, searchOptions: req.query });
+    const authors = await Author.find();
+    res.render("books/index", { books: books, searchOptions: req.query, authors: authors });
   } catch (err) {
     res.redirect("/");
   }

@@ -6,7 +6,14 @@
   </div>
   <div>
     <label>Author</label>
-    <input type="text" name="author" value="<%= searchOptions.author %>" />
+    <select name="author">
+      <option value=""></option>
+      <% authors.forEach((author) => { %> 
+        <option value="<%= author.id %>" <%= author.id === searchOptions.author ? 'selected' : '' %>>
+          <%= author.name %>
+        </option>
+      <% }) %>
+    </select>
   </div>
   <div>
     <label>Published After</label>
