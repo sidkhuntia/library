@@ -32,8 +32,10 @@
 └── views
     ├── authors
     │   ├── _form_fields.ejs
+    │   ├── edit.ejs
     │   ├── index.ejs
-    │   └── new.ejs
+    │   ├── new.ejs
+    │   └── show.ejs
     ├── books
     │   ├── _form_fields.ejs
     │   ├── index.ejs
@@ -42,6 +44,7 @@
     ├── layouts
     │   └── layout.ejs
     └── partials
+        ├── deleteform.ejs
         ├── errorMessage.ejs
         └── header.ejs
 
