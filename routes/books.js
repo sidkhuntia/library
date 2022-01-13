@@ -50,7 +50,8 @@ app.post("/", async (req, res) => {
     const newBook = await book.save();
     res.redirect("books");
   } catch (error) {
-    renderNewPage(res, book, true);
+    // renderNewPage(res, book, true);
+    res.redirect("/")
   }
 });
 

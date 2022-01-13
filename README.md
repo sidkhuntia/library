@@ -4,6 +4,7 @@
 
 - [X] Upload file path bug in multer
 - [X] Store cover images on mongodb
+- [X] Fix bug where submitting a blank page redirects as opposed to breaking the server
 - [ ] hell lot of things
 - [ ] Add search option of books using author
 - [ ] Show author name and pageCount and a short description on cover caption on book page

@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const Author = require("../models/author");
+const Book = require("../models/book");
 
 //author home page
 app.get("/", async (req, res) => {
@@ -32,7 +33,7 @@ app.post("/", async (req, res) => {
   });
   try {
     const newAuthor = await author.save();
-    res.redirect("/authors");
+    res.redirect("/authors/" + newAuthor.id);
   } catch (error) {
     res.render("authors/new.ejs", {
       author: author,
@@ -41,18 +42,58 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.get("/:id", (req, res) => {
-  res.send("hi"+req.params.id);
+app.get("/:id", async (req, res) => {
+  try {
+    const author = await Author.findById(req.params.id);
+    const books = await Book.find({ author: author.id }).exec();
+    res.render("authors/show.ejs", {
+      author: author,
+      books: books,
+    });
+  } catch {
+    res.redirect("/");
+  }
 });
-app.get("/:id/edit", (req, res) => {
-  res.send("why this" + req.params.id);
+app.get("/:id/edit", async (req, res) => {
+  try {
+    const author = await Author.findById(req.params.id);
+    res.render("authors/edit.ejs", { author: author });
+  } catch {
+    res.redirect("/authors");
+  }
 });
-app.put("/:id", (req, res) => {
-  res.send("putting here" + req.params.id);
+app.put("/:id", async (req, res) => {
+  let author;
+  try {
+    author = await Author.findById(req.params.id);
+    author.name = req.body.name;
+    await author.save();
+    res.redirect("/authors/" + author.id);
+  } catch (error) {
+    if (author == null) {
+      res.redirect("/");
+    } else {
+      res.render("authors/edit", {
+        author: author,
+        errorMessage: "Error saving changes",
+      });
+    }
+  }
 });
-app.delete("/:id", (req, res) => {
-  res.send("deleting here" + req.params.id);
+app.delete("/:id", async (req, res) => {
+  let author;
+  try {
+    author = await Author.findById(req.params.id);
+    const books = await Book.find({ author: author.id });
+    await author.remove();
+    res.redirect("/authors");
+  } catch (error) {
+    if (author == null) {
+      res.redirect("/");
+    } else {
+      res.redirect("/authors");
+    }
+  }
 });
-
 
 module.exports = app;
