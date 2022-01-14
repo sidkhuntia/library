@@ -12,7 +12,7 @@ const bookSchema = new mongoose.Schema({
   pageCount: {
     type: Number,
     required: true,
-    // min: 1,
+    min: 1,
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
@@ -39,7 +39,7 @@ const bookSchema = new mongoose.Schema({
   rating: {
     type: Number,
     required: true,
-    // max: 5,
+    max: 5,
   },
 
   description: {

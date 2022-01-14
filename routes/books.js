@@ -17,7 +17,6 @@ app.get("/", async (req, res) => {
 
   // filter using the author of the book
   if (req.query.author != null && req.query.author !== "") {
-    console.log(req.query.author);
     query = Book.find({ author: req.query.author });
   }
 
@@ -60,8 +59,8 @@ app.post("/", async (req, res) => {
     description: req.body.description,
   });
   try {
-    const newBook = await book.save();
     saveBookCover(book, req.body.cover);
+    const newBook = await book.save();
     res.redirect(`books/${newBook.id}`);
   } catch (error) {
     console.log(error)
