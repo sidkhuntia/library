@@ -9,12 +9,11 @@
   />
 </div>
 
-
 <div>
   <label>Author</label>
   <select name="author">
     <% authors.forEach((author) => { %> 
-      <option value="<%= author.id %>" <%= author.id === book.author ? 'selected' : '' %>>
+      <option value="<%= author.id %>" <%= author.id === (book.author != null?book.author.valueOf():null) ? 'selected' : '' %>>
         <%= author.name %>
       </option>
     <% }) %>

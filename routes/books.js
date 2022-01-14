@@ -58,6 +58,8 @@ app.post("/", async (req, res) => {
     rating: req.body.rating,
     description: req.body.description,
   });
+  // console.log(req.body.author);
+  // console.log(book.author.toString());
   try {
     saveBookCover(book, req.body.cover);
     const newBook = await book.save();
@@ -80,6 +82,7 @@ app.get("/:id", async (req, res) => {
 app.get("/:id/edit", async (req, res) => {
   try {
     const book = await Book.findById(req.params.id);
+    // console.log(book.author);
     renderPage(res, book, "edit");
   } catch {
     res.redirect("/books");
@@ -97,7 +100,7 @@ app.put("/:id", async (req, res) => {
       (book.genre = req.body.genre),
       (book.rating = req.body.rating),
       (book.description = req.body.description),
-      (book.createdAt = new Date());
+      (book.createdAt = new Date())
     if (req.body.cover != null && req.body.cover != "") {
       saveBookCover(book, req.body.cover);
     }
