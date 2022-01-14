@@ -35,8 +35,6 @@
   <input
     type="text"
     name="pageCount"
-    placeholder="123"
-    min="1"
     value="<%= book.pageCount %>"
   />
 </div>
@@ -47,9 +45,22 @@
   <input type="file" name="cover" class="filepond"/>
 </div>
 
+<div>
+  <label>Genre</label>
+  <input type="text" name="genre" value="<%= book.genre  %>">
+</div>
 
 <div>
   <label>Description</label>
   <textarea
     name="description"><%= book.description %></textarea>
+</div>
+
+<div>
+  <label>Rating</label>
+  <input
+    type="text"
+    name="rating"
+    value="<%= book.rating %>"
+  />
 </div>

@@ -55,6 +55,8 @@ app.post("/", async (req, res) => {
     author: req.body.author,
     publishDate: new Date(req.body.publishDate),
     pageCount: req.body.pageCount,
+    genre: req.body.genre,
+    rating: req.body.rating,
     description: req.body.description,
   });
   try {
@@ -62,6 +64,7 @@ app.post("/", async (req, res) => {
     saveBookCover(book, req.body.cover);
     res.redirect(`books/${newBook.id}`);
   } catch (error) {
+    console.log(error)
     renderNewPage(res, book, true);
   }
 });
@@ -92,6 +95,8 @@ app.put("/:id", async (req, res) => {
       (book.author = req.body.author),
       (book.publishDate = new Date(req.body.publishDate)),
       (book.pageCount = req.body.pageCount),
+      (book.genre = req.body.genre),
+      (book.rating = req.body.rating),
       (book.description = req.body.description),
       (book.createdAt = new Date());
     if (req.body.cover != null && req.body.cover != "") {
@@ -116,7 +121,10 @@ app.delete("/:id", async (req, res) => {
     res.redirect("/books");
   } catch (error) {
     if (book != null) {
-      res.render("books/show", { book: book, errorMessage: "Error deleting book" });
+      res.render("books/show", {
+        book: book,
+        errorMessage: "Error deleting book",
+      });
     } else {
       res.redirect("/books");
     }

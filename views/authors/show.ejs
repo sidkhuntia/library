@@ -2,6 +2,7 @@
 <a href="/authors/<%= author.id %>/edit">Edit</a>
 <%- include("../partials/deleteform",{url:`/authors/${ author.id}`}) %>
 <h2>Works</h2>
+<h3>Number of books: <%= books.length %></h3>
 <div>
   <% books.forEach(book => { %>
   <a href="/books/<%= book.id  %>">

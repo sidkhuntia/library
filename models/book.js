@@ -12,6 +12,7 @@ const bookSchema = new mongoose.Schema({
   pageCount: {
     type: Number,
     required: true,
+    // min: 1,
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
@@ -30,6 +31,15 @@ const bookSchema = new mongoose.Schema({
   coverImageType: {
     type: String,
     required: true,
+  },
+  genre: {
+    type: String,
+    required: true,
+  },
+  rating: {
+    type: Number,
+    required: true,
+    // max: 5,
   },
 
   description: {
