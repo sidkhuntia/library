@@ -6,6 +6,9 @@
 - [X] Store cover images on mongodb
 - [X] Fix bug where submitting a blank page redirects as opposed to breaking the server
 - [ ] hell lot of things
+- [ ] use publish year instead of date
+- [ ] Add genre and rating for each book 
+- [ ] add no. of books by author
 - [X] Add search option of books using author
 - [ ] Show author name and pageCount and a short description on cover caption on book page
 - [ ] Add darkmode feature
