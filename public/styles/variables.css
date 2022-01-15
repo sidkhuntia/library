@@ -1,4 +1,5 @@
 :root{
+    --color-text-error: #ff0000;
     --color-background-light: #1cb5e0;
     --color-background-dark: #000046;
     --color-background-old: #000046;
@@ -24,5 +25,8 @@
     --color-form-border-focus: red;
     --color-form-text: black;  
     --color-form-input-background: rgb(38, 38, 145);
+    --book-cover-width: 200px;
+    --book-cover-width-large: 325px;
+    --book-cover-aspect-ratio: 0.75;
 
 }

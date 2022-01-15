@@ -43,10 +43,6 @@
   </div>
 </form>
 <br>
-<div>
-  <% books.forEach(book => { %>
-    <a href="/books/<%= book.id  %>">
-      <img width="250px" height="250px" src="<%= book.coverImagePath %>" title="<%= book.name %> " alt="<%= book.name %> " />
-    </a>
-  <% }) %>
-</div>
+<%- include("../partials/book-show.ejs",{
+  books:books, large:true
+})  %> 
