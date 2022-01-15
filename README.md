@@ -19,38 +19,49 @@
 
 ```
 .
-├── node_modules/
 ├── models
 │   ├── author.js
 │   └── book.js
-├── package.json
-├── package-lock.json
 ├── public
-│   └── scripts
-│       └── fileupload.js
-├── README.md
+│   ├── scripts
+│   │   └── fileupload.js
+│   └── styles
+│       ├── author.css
+│       ├── books.css
+│       ├── button.css
+│       ├── form.css
+│       ├── header.css
+│       ├── main.css
+│       └── variables.css
 ├── routes
 │   ├── authors.js
 │   ├── books.js
 │   └── index.js
+├── views
+│   ├── authors
+│   │   ├── edit.ejs
+│   │   ├── _form_fields.ejs
+│   │   ├── index.ejs
+│   │   ├── new.ejs
+│   │   └── show.ejs
+│   ├── books
+│   │   ├── edit.ejs
+│   │   ├── _form_fields.ejs
+│   │   ├── index.ejs
+│   │   ├── new.ejs
+│   │   └── show.ejs
+│   ├── index.ejs
+│   ├── layouts
+│   │   └── layout.ejs
+│   └── partials
+│       ├── book-show.ejs
+│       ├── deleteform.ejs
+│       ├── errorMessage.ejs
+│       └── header.ejs
+├── .gitignore
+├── README.md
+├── package-lock.json
+├── package.json
 ├── server.js
-└── views
-    ├── authors
-    │   ├── _form_fields.ejs
-    │   ├── edit.ejs
-    │   ├── index.ejs
-    │   ├── new.ejs
-    │   └── show.ejs
-    ├── books
-    │   ├── _form_fields.ejs
-    │   ├── index.ejs
-    │   └── new.ejs
-    ├── index.ejs
-    ├── layouts
-    │   └── layout.ejs
-    └── partials
-        ├── deleteform.ejs
-        ├── errorMessage.ejs
-        └── header.ejs
 
 ```
