@@ -1,39 +1,48 @@
 <h1 class="page-header">Search Books</h1>
 <form action="/books" method="GET">
-  <div>
-    <label>Name</label>
-    <input type="text" name="name" value="<%= searchOptions.name %>" />
+  <div class="form-row">
+    <div class="form-item">
+      <label>Name</label>
+      <input type="text" name="name" value="<%= searchOptions.name %>" />
+
+    </div>
+    <div class="form-item">
+      <label>Author</label>
+      <select name="author">
+        <option value=""></option>
+        <% authors.forEach((author) => { %> 
+          <option value="<%= author.id %>" <%= author.id === searchOptions.author ? 'selected' : '' %>>
+            <%= author.name %>
+          </option>
+        <% }) %>
+      </select>
+
+    </div>
   </div>
-  <div>
-    <label>Author</label>
-    <select name="author">
-      <option value=""></option>
-      <% authors.forEach((author) => { %> 
-        <option value="<%= author.id %>" <%= author.id === searchOptions.author ? 'selected' : '' %>>
-          <%= author.name %>
-        </option>
-      <% }) %>
-    </select>
+  <div class="form-row">
+    <div class="form-item">
+      <label>Published After</label>
+      <input
+        type="date"
+        name="publishedAfter"
+        value="<%= searchOptions.publishedAfter  %>"
+      />
+    </div>
+    <div class="form-item">
+      <label>Published Before</label>
+      <input
+        type="date"
+        name="publishedBefore"
+        value="<%= searchOptions.publishedBefore  %>"
+      />
+    </div>
   </div>
-  <div>
-    <label>Published After</label>
-    <input
-      type="date"
-      name="publishedAfter"
-      value="<%= searchOptions.publishedAfter  %>"
-    />
+  <div class="form-row form-end btn-row">
+    <button class="btn btn-primary" type="submit">Search</button>
+
   </div>
-  <div>
-    <label>Published Before</label>
-    <input
-      type="date"
-      name="publishedBefore"
-      value="<%= searchOptions.publishedBefore  %>"
-    />
-  </div>
-  <button type="submit">Search</button>
 </form>
-<br />
+<br>
 <div>
   <% books.forEach(book => { %>
     <a href="/books/<%= book.id  %>">

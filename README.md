@@ -14,6 +14,8 @@
 - [ ] Add darkmode feature
 - [ ] Find a way to store cover images in cloud for free 
 - [ ] Add a feature to upload notes and bookmarks
+- [ ] Change search style
+- [ ] Add genre and ratin search options for book
 
 ```
 .

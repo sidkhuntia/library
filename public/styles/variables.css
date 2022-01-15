@@ -17,4 +17,12 @@
     --color-btn-text-primary-hover: orange;
     --color-btn-danger-hover: green;
     --color-btn-text-danger-hover: pink;
+    --form-label-font-size: 1.15rem;
+    --form-border-radius: 0.5rem;
+    --font-family: "Poppins", sans-serif;
+    --color-form-border: yellow;
+    --color-form-border-focus: red;
+    --color-form-text: black;  
+    --color-form-input-background: rgb(38, 38, 145);
+
 }

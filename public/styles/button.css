@@ -28,6 +28,10 @@
     display: flex;
     align-items: flex-start;
 }
-.btn-row > *{
-    margin-right: 1rem;
-}
+.btn-row > * {
+    margin-left: 1rem;
+  }
+  
+  .btn-row > *:first-child {
+    margin-left: 0;
+  }
