@@ -1,0 +1,20 @@
+:root{
+    --color-background-light: #1cb5e0;
+    --color-background-dark: #000046;
+    --color-background-old: #000046;
+    --color-text-light: #fff;
+    --nav-title-font-size: 2.5rem;
+    --nav-title-font-weight: bold;
+    --nav-link-font-weight: normal;
+    --color-header-hover: blue;
+    --color-btn-border: black;
+    --btn-border-rafius: 0.5rem;
+    --color-btn-primary: rgb(17, 17, 56);
+    --color-btn-text-primary: red;
+    --color-btn-danger: rgb(223, 22, 22);
+    --color-btn-text-danger: black;
+    --color-btn-primary-hover: yellow;
+    --color-btn-text-primary-hover: orange;
+    --color-btn-danger-hover: green;
+    --color-btn-text-danger-hover: pink;
+}

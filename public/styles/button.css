@@ -1,0 +1,33 @@
+.btn{
+    border: 1px solid var(--color-btn-border);
+    border-radius: var(--btn-border-radius);
+    padding: 0.5rem 1rem;
+    font-size: 1.15rem;
+    font-family: "Popins", sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+.btn-primary{
+    background: var(--color-btn-primary);
+    color: var(--color-btn-text-primary);
+}
+.btn-primary:hover{
+    background: var(--color-btn-primary-hover);
+    color: var(--color-btn-text-primary-hover);
+}
+.btn-danger{
+    background: var(--color-btn-danger);
+    color: var(--color-btn-text-danger);
+}
+.btn-danger:hover{
+    background: var(--color-btn-danger-hover);
+    color: var(--color-btn-text-danger-hover);
+}
+.btn-row{
+    display: flex;
+    align-items: flex-start;
+}
+.btn-row > *{
+    margin-right: 1rem;
+}

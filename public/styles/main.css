@@ -1,0 +1,34 @@
+@import "variables.css";
+@import "button.css";
+@import "header.css";
+:root {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  --color-background-light: #1cb5e0;
+  --color-background-dark: #000046;
+  --color-background-old: #000046;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: var(--color-background-old);
+  background: linear-gradient(
+    to right,
+    var(--color-background-dark),
+    var(--color-background-light)
+  );
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.page-header{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
