@@ -85,6 +85,10 @@ app.delete("/:id", async (req, res) => {
   try {
     author = await Author.findById(req.params.id);
     const books = await Book.find({ author: author.id });
+    //delete all books by this author
+    books.forEach(async (book) => {
+      await book.remove();
+    });
     await author.remove();
     res.redirect("/authors");
   } catch (error) {
@@ -92,6 +96,7 @@ app.delete("/:id", async (req, res) => {
       res.redirect("/");
     } else {
       res.redirect("/authors");
+      console.log(error);
     }
   }
 });
