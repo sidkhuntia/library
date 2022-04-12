@@ -10,7 +10,7 @@
     <div class="book-btn-grid">
       <a class="btn btn-primary" href="/books/<%= book.id  %>/edit">Edit</a>
       <%- include("../partials/deleteform",{url:`/books/${ book.id}`}) %>
-      <a class="btn btn-primary author-btn" href="/books/<%= book.author.id  %>"
+      <a class="btn btn-primary author-btn" href="/authors/<%= book.author.id  %>"
         >View Author</a
       >
     </div>
